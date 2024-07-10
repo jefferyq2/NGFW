@@ -70,7 +70,13 @@ cd NGFW
 sudo ./scripts/basic_firewall.sh
 ```
 - Expected Output:
+![Screenshot 2024-07-10 131312](https://github.com/MenakaGodakanda/NGFW/assets/156875412/259c91fe-6183-4035-af17-65bff018cffa)
 
+- Verify the iptables rules using:
+```
+sudo iptables -L -v
+```
+![Screenshot 2024-07-10 131407](https://github.com/MenakaGodakanda/NGFW/assets/156875412/ba7684a4-93be-4507-bcfd-0c0ffa1140b1)
 
 ### 3. Running the Packet Inspection Script:
 - Running the packet inspection script (`packet_inspection.py`) should capture and print IP packets:
@@ -79,6 +85,7 @@ sudo python3 ./scripts/packet_inspection.py
 ```
 
 - Expected Output: This output will vary based on the network traffic at the time.
+![Screenshot 2024-07-10 131320](https://github.com/MenakaGodakanda/NGFW/assets/156875412/58771bef-4549-4a61-8a04-d17ee2d186ec)
 
 
 ### 4. Combine iptables and Packet Inspection
@@ -86,8 +93,8 @@ sudo python3 ./scripts/packet_inspection.py
 ```bash
 sudo ./scripts/ngfw.sh
 ```
-
 - Expected Output: Again, the exact packet details will depend on the current network traffic.
+![Screenshot 2024-07-10 131627](https://github.com/MenakaGodakanda/NGFW/assets/156875412/17e44412-10d5-477f-bcb3-bd59994bc047)
 
 
 ### 5. Running the Tests
@@ -97,6 +104,7 @@ sudo ./tests/test_firewall_rules.sh
 ```
 - The script will print the current iptables rules and start the packet inspection for a brief period.
 - Expected Output:
+![Screenshot 2024-07-10 134845](https://github.com/MenakaGodakanda/NGFW/assets/156875412/50f4fda7-a74e-400c-98ac-823e69074d1b)
 
 ## Troubleshooting
 -  Ensure you have the necessary permissions to run scripts.
