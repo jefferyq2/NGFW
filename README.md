@@ -1,6 +1,7 @@
 # Next-Generation Firewall (NGFW)
 
-This project implements a Next-Generation Firewall using open-source tools. It combines basic iptables rules with a Python-based packet inspection system using Scapy.
+This project implements a Next-Generation Firewall using open-source tools. It combines basic iptables rules with a Python-based packet inspection system using Scapy.<br>
+<a href="https://github.com/MenakaGodakanda/NGFW/blob/main/Project_Description.md">Project Description</a>
 
 ## Overview
 <img width="1106" alt="Screenshot 2024-07-10 at 2 52 38 PM" src="https://github.com/MenakaGodakanda/NGFW/assets/156875412/681148f3-dd60-4115-82d8-45d8f3b5b3bd">
@@ -65,11 +66,11 @@ cd NGFW
 ```
 
 ### 2. Running the Basic Firewall Script:
-- Basuc firewall script (`basic_firewall.sh`) should configure iptables rules:
+- Basic firewall script (`basic_firewall.sh`) should configure iptables rules:
 ```bash
 sudo ./scripts/basic_firewall.sh
 ```
-- Expected Output:
+- Expected Output:<br><br>
 ![Screenshot 2024-07-10 131312](https://github.com/MenakaGodakanda/NGFW/assets/156875412/259c91fe-6183-4035-af17-65bff018cffa)
 
 - Verify the iptables rules using:
@@ -78,23 +79,35 @@ sudo iptables -L -v
 ```
 ![Screenshot 2024-07-10 131407](https://github.com/MenakaGodakanda/NGFW/assets/156875412/ba7684a4-93be-4507-bcfd-0c0ffa1140b1)
 
+- The above output illustrates that the rules have been correctly applied according to the script.
+    - The default policies are set correctly (`DROP` for `INPUT` and `FORWARD`, `ACCEPT` for `OUTPUT`).
+    - The loopback traffic rule is working, as indicated by the packet and byte counts.
+    - The established connections rule is working, as shown by the packet and byte counts.
+    - The rules for SSH, HTTP, and HTTPS are in place, though no traffic has been detected yet for these services.
+
 ### 3. Running the Packet Inspection Script:
 - Running the packet inspection script (`packet_inspection.py`) should capture and print IP packets:
 ```bash
 sudo python3 ./scripts/packet_inspection.py
 ```
 
-- Expected Output: This output will vary based on the network traffic at the time.
+- Expected Output: This output will vary based on the network traffic at the time.<br><br>
 ![Screenshot 2024-07-10 131320](https://github.com/MenakaGodakanda/NGFW/assets/156875412/58771bef-4549-4a61-8a04-d17ee2d186ec)
 
+- The above output illustrates that the rules have been correctly applied according to the script.
+    - The script is functioning as intended, capturing and printing packets' source and destination IP addresses.
+    - The output shows a mixture of incoming and outgoing packets, indicating active network communication involving your machine (`10.0.2.15`) and external IP addresses (`172.64.155.141` and `104.18.32.115`).
+    - The packet inspection is correctly identifying and displaying IP packets.
 
 ### 4. Combine iptables and Packet Inspection
 - Running the NGFW script (`ngfw.sh`) should load the iptables rules and start packet inspection:
 ```bash
 sudo ./scripts/ngfw.sh
 ```
-- Expected Output: Again, the exact packet details will depend on the current network traffic.
+- Expected Output: Again, the exact packet details will depend on the current network traffic.<br>
 ![Screenshot 2024-07-10 131627](https://github.com/MenakaGodakanda/NGFW/assets/156875412/17e44412-10d5-477f-bcb3-bd59994bc047)
+
+- The above output illustrates that the script successfully loaded the iptables rules and started packet inspection.
 
 
 ### 5. Running the Tests
@@ -103,8 +116,10 @@ sudo ./scripts/ngfw.sh
 sudo ./tests/test_firewall_rules.sh
 ```
 - The script will print the current iptables rules and start the packet inspection for a brief period.
-- Expected Output:
+- Expected Output:<br><br>
 ![Screenshot 2024-07-10 134845](https://github.com/MenakaGodakanda/NGFW/assets/156875412/50f4fda7-a74e-400c-98ac-823e69074d1b)
+
+- The above output illustrates that the script successfully verified the firewall rules and packet inspection functionality.
 
 ## Troubleshooting
 -  Ensure you have the necessary permissions to run scripts.
