@@ -4,7 +4,8 @@ This project implements a Next-Generation Firewall using open-source tools. It c
 <a href="https://github.com/MenakaGodakanda/NGFW/blob/main/Project_Description.md">Project Description</a>
 
 ## Overview
-<img width="1106" alt="Screenshot 2024-07-10 at 2 52 38 PM" src="https://github.com/MenakaGodakanda/NGFW/assets/156875412/681148f3-dd60-4115-82d8-45d8f3b5b3bd">
+<img width="1106" alt="Screenshot 2024-07-11 at 11 17 45 PM" src="https://github.com/MenakaGodakanda/NGFW/assets/156875412/f0cc6989-5d75-471b-930e-1574943d0952">
+
 
 ### Explanation
 1. **Basic Firewall Script**:
